@@ -15,8 +15,10 @@ function App() {
 
 function Component(){
   return(
-    <div>
-      <h1>Hello World</h1>
+    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center',backgroundColor: 'lightblue'}}>
+    <div style={{borderRadius:'200px',width:'170px',border: '1px solid black', padding: '60px', margin: '10px', display: 'inline-block',backgroundColor: 'lightgreen'}}>
+      <h1 style={{}}>Hello World</h1>
+    </div>
     </div>
   )
 }
