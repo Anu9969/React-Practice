@@ -20,10 +20,12 @@ function App() {
 }
 
 const ToggleMessage = () =>{
-  let [message, setMessage] = useState(false);
+  // let [message, setMessage] = useState(false);
+  let [notification, setNotification] = useState(0);
 
    function toggle(){
-      setMessage(!message);
+      // setMessage(!message);
+      setNotification(notification + 1);
    }
  
   
@@ -31,7 +33,9 @@ const ToggleMessage = () =>{
   return(
     <div style={{borderRadius:'200px',width:'170px',border: '1px solid black', padding: '60px', margin: '10px',display: 'inline-block',backgroundColor: 'lightgreen',textAlign: 'center'}}>
     <button onClick={toggle} style={{padding: '10px',borderRadius:"4px"}}>Toggle Message</button>
-    {message && <h1>Message Visible yay i did it</h1>}
+    {/* {message && <h1>Message Visible yay i did it</h1>} */}
+
+    {notification && <h1>Notification: {notification}</h1>}
     </div>
   );
 
