@@ -1,23 +1,51 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 
 function App() {
-  
+  const [count, setCount ] = useState(0);
+  const [count2, setCount2] = useState(0);
+    
+  function increment(){
+    setCount(currentCount => currentCount + 1);
+  }
+
+  function decrese(){
+    setCount2(currentCount => currentCount - 1);
+  }
+
+
+  useEffect(() => {
+    setInterval(increment, 1000);
+    setInterval(decrese , 2000);
+  }, []);
+
+  useEffect(() =>{
+    console.log('count has changed');
+
+  }, [count, count2]);
+
 
   return (
     
-    <div style={{backgroundColor: 'lightblue', height: '100vh' ,display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-        <ToggleMessage/>
-        <ToggleMessage/>
-        <ToggleMessage/>
-        <ToggleMessage/>
+    <div style={{backgroundColor: 'lightblue', height: '100vh' ,display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '130px'}}>
+     
+
+        {count}  
+      
     
     </div>
      
     
   )
 }
+
+
+
+
+
+
+
 
 const ToggleMessage = () =>{
   // let [message, setMessage] = useState(false);
@@ -51,5 +79,10 @@ function Component(){
     </div>
   )
 }
+
+
+
+
+
 
 export default App
