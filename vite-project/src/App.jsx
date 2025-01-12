@@ -8,7 +8,7 @@ function App() {
 
   const [currentTab, setCurrentTab] = useState(1);
   const [tabData, setTabData] = useState({});
-  
+  const [Loading, setLoading ] = useState(true);
     
   // function increment(){
   //   setCount(currentCount => currentCount + 1);
@@ -30,10 +30,12 @@ function App() {
   // }, [count, count2]);
 
   useEffect(() =>{
+    setLoading(true);
     fetch('https://jsonplaceholder.typicode.com/todos/' + currentTab)
       .then(async res => {
         const json = await res.json();
         setTabData(json);
+        setLoading(false);
       })
   },[currentTab]);
 
@@ -55,7 +57,7 @@ function App() {
     }} style={{color: currentTab == 4 ? "red" : "black", padding: '8px', borderRadius: "6px", gap:"2px"}}>Anku</button>
       
       
-    {tabData.title}
+    {Loading ? "Loading..." : tabData.title}
     </div>
      
     
