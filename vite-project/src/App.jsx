@@ -6,7 +6,9 @@ function App() {
   // const [count, setCount ] = useState(0);
   // const [count2, setCount2] = useState(0);
 
-  const [currentTab, setCurrentTab] = useState('Anurag');
+  const [currentTab, setCurrentTab] = useState(1);
+  const [tabData, setTabData] = useState({});
+  
     
   // function increment(){
   //   setCount(currentCount => currentCount + 1);
@@ -27,27 +29,33 @@ function App() {
 
   // }, [count, count2]);
 
-
+  useEffect(() =>{
+    fetch('https://jsonplaceholder.typicode.com/todos/' + currentTab)
+      .then(async res => {
+        const json = await res.json();
+        setTabData(json);
+      })
+  },[currentTab]);
 
   return (
     
     <div style={{backgroundColor: 'lightblue', height: '100vh' ,display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '130px'}}>
      
     <button onClick={() => {
-      setCurrentTab("Anurag")
-    }} style={{color: currentTab == "Anurag"? "red" : "black", padding: '8px', borderRadius: "6px", gap:"2px"}}>Anurag</button>
+      setCurrentTab(1)
+    }} style={{color: currentTab == 1? "red" : "black", padding: '8px', borderRadius: "6px", gap:"2px"}}>Anurag</button>
     <button onClick={function(){
-      setCurrentTab("Vinu")
-    }} style={{color: currentTab == "Vinu" ? "red" : "black", padding: '8px', borderRadius: "6px", gap:"2px"}}>Vinu</button>
+      setCurrentTab(2)
+    }} style={{color: currentTab == 2 ? "red" : "black", padding: '8px', borderRadius: "6px", gap:"2px"}}>Vinu</button>
     <button onClick={() =>{
-      setCurrentTab("Vedant")
-    }} style={{color: currentTab == "Vedant" ? "red" : "black" ,padding: '8px', borderRadius: "6px", gap:"2px"}}>Vedant</button>
+      setCurrentTab(3)
+    }} style={{color: currentTab == 3 ? "red" : "black" ,padding: '8px', borderRadius: "6px", gap:"2px"}}>Vedant</button>
     <button onClick={() => {
-      setCurrentTab("Anku")
-    }} style={{color: currentTab == "Anku" ? "red" : "black", padding: '8px', borderRadius: "6px", gap:"2px"}}>Anku</button>
+      setCurrentTab(4)
+    }} style={{color: currentTab == 4 ? "red" : "black", padding: '8px', borderRadius: "6px", gap:"2px"}}>Anku</button>
       
       
-    
+    {tabData.title}
     </div>
      
     
