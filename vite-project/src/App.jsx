@@ -28,6 +28,8 @@ function App() {
 
 
   return (
+    <div>
+    || <a href='/'> Allen </a> ||   <a href='/neet/online-coaching-class-11'> 11th </a> ||  <a href='/neet/online-coaching-class-12'> 12th </a> ||  
     <BrowserRouter>
       <Routes>
         <Route path = "/neet/online-coaching-class-11" element={<Class11program/>} />
@@ -36,7 +38,7 @@ function App() {
       </Routes>
     </BrowserRouter>
      
-    
+    </div>
   )
 }
 
