@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
 
 
 
@@ -29,8 +29,12 @@ function App() {
 
   return (
     <div>
-    || <a href='/'> Allen </a> ||   <a href='/neet/online-coaching-class-11'> 11th </a> ||  <a href='/neet/online-coaching-class-12'> 12th </a> ||  
+    {/* || <a href='/'> Allen </a> ||   <a href='/neet/online-coaching-class-11'> 11th </a> ||  <a href='/neet/online-coaching-class-12'> 12th </a> ||   */}
+    
+    
     <BrowserRouter>
+    || <Link to='/'> Allen </Link> ||   <Link to='/neet/online-coaching-class-11'> 11th </Link> ||  <Link to='/neet/online-coaching-class-12'> 12th </Link> ||  
+
       <Routes>
         <Route path = "/neet/online-coaching-class-11" element={<Class11program/>} />
         <Route path = "/neet/online-coaching-class-12" element={<Class12program/>} />
